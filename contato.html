@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Contato - Lei por Elas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="container">
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="logo">
+    <img src="logo.png">
+    <span>Lei por Elas</span>
+  </div>
+
+  <div class="menu">
+    <a href="index.html">INÍCIO</a>
+    <a href="sobre.html">SOBRE</a>
+    <a href="voluntarios.html">VOLUNTARIADO</a>
+    <a href="contato.html">CONTATO</a>
+    <a href="regras.html">REGRAS</a>
+  </div>
+</nav>
+
+<!-- 🔥 HERO COM LOGO -->
+<section class="hero">
+
+  <div class="hero-text">
+    <h1>Fale Conosco</h1>
+    <p>
+      Tire dúvidas, envie sugestões ou entre em contato com nossa equipe.
+    </p>
+  </div>
+
+  <div class="hero-logo contato-logo">
+    <img src="logo.png">
+  </div>
+
+</section>
+
+<!-- CONTEÚDO -->
+<section class="contato-grid fade-in">
+
+  <!-- FORM -->
+  <div class="card glass">
+
+    <h1>Fale Conosco</h1>
+
+    <p>Envie sua mensagem diretamente para nossa equipe.</p>
+
+    <form id="formContato" class="form">
+
+      <input type="text" id="nome" placeholder="Seu nome" required>
+      <input type="email" id="email" placeholder="Seu email" required>
+      <textarea id="mensagem" placeholder="Sua mensagem..." required></textarea>
+
+      <button type="submit" class="btn">ENVIAR NO WHATSAPP</button>
+
+    </form>
+
+  </div>
+
+  <!-- INFO -->
+  <div class="card glass">
+
+    <h2>Informações</h2>
+
+    <p>📧 leiporelasasam@gmail.com</p>
+    <p>📞 (11) 9728-3499</p>
+    <p>📍 Rua Barão de Duprat, 312</p>
+
+    <a class="whatsapp-btn"
+       href="https://wa.me/5511972834999"
+       target="_blank">
+       Abrir WhatsApp
+    </a>
+
+  </div>
+
+</section>
+
+<!-- MAPA -->
+<section class="mapa fade-in">
+
+  <h2>Nosso Local</h2>
+
+<iframe
+  src="https://www.google.com/maps?q=Rua%20Barão%20de%20Duprat%20312%20São%20Paulo&output=embed"
+  width="100%"
+  height="300"
+  style="border:0; border-radius:15px;"
+  loading="lazy">
+</iframe>
+
+</section>
+
+</div>
+
+<script>
+function revealOnScroll() {
+  document.querySelectorAll(".fade-in").forEach(el => {
+    const pos = el.getBoundingClientRect().top;
+
+    if (pos < window.innerHeight - 100) {
+      el.style.opacity = "1";
+      el.style.transform = "translateY(0)";
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+
+// WhatsApp automático
+document.getElementById("formContato").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  let nome = document.getElementById("nome").value;
+  let email = document.getElementById("email").value;
+  let msg = document.getElementById("mensagem").value;
+
+  let texto =
+`Olá! Meu nome é ${nome}
+Email: ${email}
+Mensagem: ${msg}`;
+
+  let url = "https://wa.me/5511972834999?text=" + encodeURIComponent(texto);
+
+  window.open(url, "_blank");
+});
+</script>
+
+<footer class="footer">
+  <p>© 2026 Lei por Elas. Todos os direitos reservados.</p>
+  <span>Projeto voluntário de apoio jurídico para mulheres.</span>
+</footer>
+
+</body>
+</html>
